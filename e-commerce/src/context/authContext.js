@@ -2,7 +2,7 @@
 
 import { api } from "@/lib/api";
 import { useRouter } from "next/navigation";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const Auth = createContext();
 
@@ -14,6 +14,7 @@ export const AuthProvider = ({ children }) => {
   const hydratedUser = async () => {
     try {
       const res = await api.get("/api/auth/me");
+      console.log(res.data)
       setUser(res.data.user);
       route.push("/layout/home");
     } catch (error) {
@@ -23,6 +24,10 @@ export const AuthProvider = ({ children }) => {
       setLoading(false);
     }
   };
+
+  useEffect(()=> {
+    hydratedUser()
+  }, [])
   return (
     <Auth.Provider value={{ user, hydratedUser, loading }}>
       {children}

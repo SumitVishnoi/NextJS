@@ -1,6 +1,8 @@
-import { AuthProvider } from "@/context/auth.context";
+
 import "./globals.css";
-import { ThemeProvider } from "next-themes";
+
+import { AuthProvider } from "@/context/authContext";
+import { ThemeProvider } from "@/components/themeProvider";
 
 export const metadata = {
   title: "Create Next App",
@@ -9,8 +11,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className="min-h-screen">
+    <html suppressHydrationWarning lang="en" className={` h-full antialiased`}>
+      <body className="h-screen gap-5 flex flex-col">
         <AuthProvider>
           <ThemeProvider
             attribute="class"
@@ -18,7 +20,7 @@ export default function RootLayout({ children }) {
             enableSystem
             disableTransitionOnChange
           >
-            <main className="px-8 py-4">{children}</main>
+            <div className="px-8 flex-1">{children}</div>
           </ThemeProvider>
         </AuthProvider>
       </body>

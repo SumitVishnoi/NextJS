@@ -1,14 +1,12 @@
-import ProtectedRoute from '@/components/ProtectedRoute'
-import React from 'react'
+import ProtectedRoute from "@/components/ProtectedRoute";
+import React from "react";
 
-const Page = () => {
+const page = () => {
   return (
     <ProtectedRoute>
-      <div>
-        <h1>This is Home page</h1>
-      </div>
+      <div>this is home page</div>
     </ProtectedRoute>
-  )
-}
+  );
+};
 
-export default Page
+export default page;

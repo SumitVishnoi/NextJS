@@ -1,14 +1,13 @@
-import Navbar from '@/components/Navbar'
-import React from 'react'
+import Navbar from "@/components/Navbar";
+import React from "react";
 
-const layout = () => {
+const layout = ({ children }) => {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className="min-h-screen">
-        <Navbar />
-      </body>
-    </html>
-  )
-}
+    <div className="min-h-screen">
+      <Navbar />
+      {children}
+    </div>
+  );
+};
 
-export default layout
+export default layout;

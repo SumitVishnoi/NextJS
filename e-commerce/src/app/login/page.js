@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { api } from "@/lib/api";
-import { useAuth } from "@/context/auth.context";
+import { useAuth } from "@/context/authContext";
 
 export default function Login() {
   const [formData, setFormData] = useState({});

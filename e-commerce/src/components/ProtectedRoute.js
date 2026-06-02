@@ -1,19 +1,21 @@
 "use client";
 
-import { useAuth } from "@/context/auth.context";
+import { useAuth } from "@/context/authContext";
 import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 
 const ProtectedRoute = ({ children }) => {
-  const route = useRouter();
+  const router = useRouter();
+
   const { user, loading } = useAuth();
 
   useEffect(() => {
-    if (!user && !loading) {
-      route.push("/login");
+    if (!loading && !user) {
+      router.replace("/login");
     }
-  }, [user, loading, route]);
+  }, [user, loading, router]);
 
+  // Loading State
   if (loading) {
     return (
       <div className="flex min-h-screen items-center justify-center">
@@ -21,7 +23,11 @@ const ProtectedRoute = ({ children }) => {
       </div>
     );
   }
-  return { children };
+
+  // Prevent flashing protected content
+  if (!user) return null;
+
+  return children;
 };
 
 export default ProtectedRoute;

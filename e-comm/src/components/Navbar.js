@@ -15,7 +15,7 @@ const navLinks = [
   },
   {
     name: "About",
-    href: "/about",
+    href: "/layout/about",
   },
   {
     name: "Products",
@@ -23,7 +23,7 @@ const navLinks = [
   },
   {
     name: "Contact",
-    href: "/contact",
+    href: "/layout/contact",
   },
 ];
 
@@ -54,11 +54,11 @@ export default function Navbar() {
           <ModeToggle />
 
           <Button variant="outline" asChild>
-            <Link href="/login">Login</Link>
+            <Link href="/auth/login">Login</Link>
           </Button>
 
           <Button asChild>
-            <Link href="/register">Sign Up</Link>
+            <Link href="/auth/register">Sign Up</Link>
           </Button>
         </div>
 
@@ -87,11 +87,11 @@ export default function Navbar() {
 
                 <div className="mt-4 flex flex-col gap-2">
                   <Button variant="outline" asChild>
-                    <Link href="/login">Login</Link>
+                    <Link href="/auth/login">Login</Link>
                   </Button>
 
                   <Button asChild>
-                    <Link href="/register">Sign Up</Link>
+                    <Link href="/auth/register">Sign Up</Link>
                   </Button>
                 </div>
               </div>
